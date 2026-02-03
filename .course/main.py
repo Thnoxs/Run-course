@@ -103,7 +103,7 @@ def wizard_add_course():
     }
     
     with open(COURSES_FILE, 'w') as f: json.dump(existing, f, indent=4)
-    print(f"\n✅ Course '{title}' added! Try: course-open {short_name}\n")
+    print(f"\n✅ Course '{title}' added! Try: play {short_name}\n")
 
 # --- HELPER: LIST COURSES ---
 def list_courses():
