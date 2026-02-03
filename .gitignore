@@ -1,0 +1,4 @@
+.course/session.txt
+.course/courses.json
+__pycache__/
+.DS_Store
