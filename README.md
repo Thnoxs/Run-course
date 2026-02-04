@@ -40,28 +40,28 @@ After setup, you can use these commands from anywhere in your terminal:
     _Log in using your Telegram credentials:_
 
 ```bash
-telo-login
+telo login
 ```
 
 2. Add a Course
    _Add a new Telegram channel as a course:_
 
 ```bash
-add
+telo add
 ```
 
 3. View Your Library
    _List all added courses:_
 
 ```bash
- list
+telo list
 ```
 
 4. Play a Course
    _Open a course using its name or any keyword:_
 
 ```bash
-play {Your course name or just ENTER}
+telo play {Your course name or just ENTER}
 ```
 
 # Project Structure
