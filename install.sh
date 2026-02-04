@@ -18,20 +18,35 @@ pip3 install -r requirements.txt
 
 # 3. Zsh Shortcuts (Aliases) add karna automatically
 # Check if alias already exists to avoid duplication
-if ! grep -q "course-open" ~/.zshrc; then
-    echo "✍️ Adding aliases to ~/.zshrc..."
+if ! grep -q "telo()" ~/.zshrc; then
+    echo "✍️ Adding 'telo' function to ~/.zshrc..."
     echo "" >> ~/.zshrc
     echo "# === TELO ENGINE ALIASES ===" >> ~/.zshrc
-    echo "alias add='python3 ~/.course/main.py add'" >> ~/.zshrc
-    echo "alias list='python3 ~/.course/main.py list'" >> ~/.zshrc
-    echo "alias play='python3 ~/.course/main.py open'" >> ~/.zshrc
-    echo "alias telo-login='python3 ~/.course/main.py login'" >> ~/.zshrc
-    echo "course-stop() { pkill -f \"python3.*.course/main.py\"; echo \"🛑 All servers stopped.\"; }" >> ~/.zshrc
-    
-    echo "✅ Aliases added successfully!"
+    echo 'telo() {
+    case $1 in
+        add)
+            python3 ~/.course/main.py add "${@:2}"
+            ;;
+        list)
+            python3 ~/.course/main.py list "${@:2}"
+            ;;
+        play)
+            python3 ~/.course/main.py open "${@:2}"
+            ;;
+        login)
+            python3 ~/.course/main.py login "${@:2}"
+            ;;
+        *)
+            echo "Usage: telo {add|list|play|login}"
+            echo "Example: telo play '\''React Tutorial'\''"
+            ;;
+    esac
+}' >> ~/.zshrc
+
+    echo "✅ Telo function added successfully!"
     echo "🔄 Run 'source ~/.zshrc' to start using commands."
 else
-    echo "ℹ️ Aliases already exist in ~/.zshrc"
+    echo "ℹ️ Telo function already exists in ~/.zshrc"
 fi
 
 echo "🎉 Setup Complete! Ab aap 'course-add' ya 'login-telo' use kar sakte hain."
